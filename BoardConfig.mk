@@ -108,7 +108,7 @@ TW_INCLUDE_NTFS_3G := true
 AB_OTA_UPDATER := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_MAX_BRIGHTNESS := 940
-TW_THEME := portrait_hdpi
+TW_THEME := portrait_hdpi_notch
 TARGET_RECOVERY_DEVICE_MODULES += android.hardware.boot@1.0
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
@@ -118,9 +118,6 @@ TW_NO_LEGACY_PROPS := true
 
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
-
-#Hide notch
-#TARGET_RECOVERY_UI_MARGIN_HEIGHT := 140
 
 # A/B updater updatable partitions list. Keep in sync with the partition list
 # with "_a" and "_b" variants in the device. Note that the vendor can add more
@@ -137,13 +134,16 @@ AB_OTA_PARTITIONS += \
 # Must match build.prop of current system for decryption to work properly!
 PLATFORM_VERSION := 9
 # 9.0.5 STOCK
-PLATFORM_SECURITY_PATCH := 2018-11-01
+PLATFORM_SECURITY_PATCH := 2025-12-31
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 
 # Extras
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_USE_LEDS_HAPTICS := true
+# TWRP-INSTALLER https://gerrit.omnirom.org/#/c/android_build/+/33182/
+USE_RECOVERY_INSTALLER := true
+RECOVERY_INSTALLER_PATH := device/oneplus/fajita/installer
 
 # TWRP Debug Flags
 #TWRP_EVENT_LOGGING := true
